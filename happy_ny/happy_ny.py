@@ -150,6 +150,13 @@ def happy_NY(friends, q):
             print(str(e))
 
 
+def quit(driver=driver):
+    q = driver.find_elements_by_class_name('top_profile_mrow')[-1]
+    q = q.get_attribute('href')
+    driver.get(q)
+
+
+
 # Let's go!
 driver.get('https://vk.com/')
 # Login!
@@ -160,4 +167,7 @@ scroll_to_the_end()
 friends = get_friends()
 # Try to congratulate
 happy_NY(friends, q)
-
+# Quit from account!
+quit()
+# Close current chrome process
+driver.close()
